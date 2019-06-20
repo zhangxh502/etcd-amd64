@@ -1,5 +1,6 @@
 FROM python:2.7
 
-RUN pip install s3cmd
-COPY .s3cfg /root
 COPY etcdctl /usr/bin/
+RUN pip install s3cmd \
+    && chmod +x /usr/bin/etcdctl
+COPY .s3cfg /root
